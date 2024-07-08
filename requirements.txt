@@ -1,0 +1,6 @@
+einops==0.8.0
+numpy==2.0.0
+Pillow==10.4.0
+torch==2.3.1+cu118
+torchvision==0.18.1+cu118
+tqdm==4.66.4
