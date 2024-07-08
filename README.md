@@ -15,7 +15,7 @@ The CLEVR datasets used in this paper were originally used in Neural Systematic 
 
 To train SVQ:
 
-```python train.py --data_path=/path/to/images/\*.png --log_path=/path/to/logs/logs --fp16```
+```python train.py --data_path=/path/to/images/\*.png --log_path=/path/to/logs --fp16```
 
 Use `data_path` to specify the directory of the images and `log_path` for the directory for the output logs and checkpoints. See `train.py` and `args.py` for a full list of arguments.
 
@@ -25,7 +25,7 @@ Use `data_path` to specify the directory of the images and `log_path` for the di
 
 To train ALP:
 
-```python train_prior.py --data_path=/path/to/images/\*.png --log_path=/path/to/logs/logs --model_checkpoint_path=/path/to/svq/checkpoint/checkpoint.pt.tar --prior_data_dir=/path/to/prior/data/ --fp16```
+```python train_prior.py --data_path=/path/to/images/\*.png --log_path=/path/to/logs --model_checkpoint_path=/path/to/svq/checkpoint/checkpoint.pt.tar --prior_data_dir=/path/to/prior/data/ --fp16```
 
 Use `model_checkpoint_path` to specify the trained SVQ checkpoint. The initial run of `train_prior.py` will create a dataset of SVQ latents and store the data in the `prior_data_dir` directory. Subsequent runs will reuse the SVQ latents data in `prior_data_dir` if it has already been created. The `version` argument can be used to force re-creation of the SVQ latents which can be useful when testing different SVQ models.
 
