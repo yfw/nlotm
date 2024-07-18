@@ -38,7 +38,7 @@ class MultiHeadAttention(nn.Module):
         k = self.proj_k(k).view(B, S, self.num_heads, -1).transpose(1, 2)
         v = self.proj_v(v).view(B, S, self.num_heads, -1).transpose(1, 2)
 
-        output = F.scaled_dot_product_attention(q, k, v, dropout_p=self.dropout, is_causal=is_causal).transpose(1, 2).reshape(B, T, -1)
+        output = F.scaled_dot_product_attention(q, k, v, dropout_p=self.dropout if self.training else 0.0, is_causal=is_causal).transpose(1, 2).reshape(B, T, -1)
         output = self.proj_o(output)
         output = self.output_dropout(output)
 
